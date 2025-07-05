@@ -1,0 +1,153 @@
+.dashboard {
+  position: relative;
+  color: #f0f0f5;
+  background: #000000;  /* PITCH BLACK background */
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Particles covers entire viewport */
+.dashboard > .particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.dashboard-content-wrapper {
+  position: relative;
+  z-index: 2;
+  padding: 20px 20px 60px;
+}
+
+/* Navbar */
+.dashboard-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  flex-wrap: wrap;
+  z-index: 10;
+}
+
+.dashboard-navbar h1 {
+  font-size: 36px;
+  margin: 0 10px 20px 0;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.dashboard-nav-links a {
+  color: #ffffff;
+  margin-left: 25px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.dashboard-nav-links a:hover {
+  color: #cccccc;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* News Carousel */
+.news-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  gap: 20px;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.carousel-btn {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0d0d1a;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.2s;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.15);
+}
+
+.news-items {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  flex: 1;
+  scrollbar-width: none;
+}
+
+.news-items::-webkit-scrollbar {
+  display: none;
+}
+
+.news-article {
+  min-width: 400px;
+  background: radial-gradient(circle, rgba(30,42,120,0.9) 0%, rgba(45,58,169,0.9) 100%);
+  padding: 25px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  transition: transform 0.2s;
+}
+
+.news-article a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.news-article:hover {
+  transform: scale(1.08);
+}
+
+/* APOD Section */
+.dashboard-apod {
+  margin: 50px 0;
+}
+
+.apod-card img {
+  width: 80%;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.4);
+}
+
+.apod-img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* Space Weather Popup */
+.space-weather-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.8);
+  color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 16px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  z-index: 10;
+}

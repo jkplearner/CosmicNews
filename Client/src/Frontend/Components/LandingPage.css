@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #0D0D1A;
+  color: #F0F0F5;
+}
+
+.landing-page {
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar .logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #F0F0F5;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #F0F0F5;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative; /* anchor for absolutely positioned background */
+  height: 100vh;
+  overflow: hidden; /* ensures particles don't spill outside hero */
+}
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* place background below content */
+}
+.hero-content {
+  position: relative; /* keep hero text above particles */
+  z-index: 1;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+
+.hero-content p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.hero-buttons .primary-btn,
+.hero-buttons .secondary-btn {
+  padding: 15px 40px;
+  margin: 0 10px;
+  border: none;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.primary-btn {
+  background-color: #1E2A78;
+  color: #F0F0F5;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  border: 2px solid #F0F0F5;
+  color: #F0F0F5;
+}
+.hero-buttons .primary-btn:hover,
+.hero-buttons .secondary-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 100px 20px;
+  background-color: #1E2A78;
+}
+
+.feature-card {
+  background: rgba(240, 240, 245, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+}
+
+/* Subscribe Section */
+.subscribe-section {
+  background-color: #6C4AB6;
+  padding: 80px 20px;
+}
+
+.subscribe-section h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.subscribe-form input[type="email"] {
+  padding: 15px;
+  font-size: 18px;
+  width: 300px;
+  border-radius: 8px;
+  margin-right: 20px;
+  border: none;
+}
+
+.subscribe-form button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1E2A78;
+  color: #F0F0F5;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  padding: 40px 20px;
+  background-color: #0D0D1A;
+  text-align: center;
+}
+
+.footer-links {
+  margin-top: 20px;
+}
+
+.footer-links a {
+  color: #F0F0F5;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 16px;
+}
