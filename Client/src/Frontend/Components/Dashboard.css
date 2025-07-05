@@ -44,9 +44,15 @@
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
+.dashboard-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
 .dashboard-nav-links a {
   color: #ffffff;
-  margin-left: 25px;
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s, text-shadow 0.3s;
@@ -68,6 +74,7 @@
   background: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border-radius: 20px;
+  flex-wrap: wrap;
 }
 
 .carousel-btn {
@@ -150,4 +157,76 @@
   font-size: 16px;
   box-shadow: 0 0 20px rgba(255,255,255,0.3);
   z-index: 10;
+}
+
+/* ---------------------------
+   Responsive Design
+--------------------------- */
+
+@media (max-width: 1024px) {
+  .news-article {
+    min-width: 300px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .dashboard-navbar h1 {
+    font-size: 28px;
+  }
+
+  .news-carousel {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .news-article {
+    min-width: 90%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-navbar h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-nav-links a {
+    font-size: 16px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .news-article {
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  .apod-card img {
+    width: 95%;
+  }
+
+  .space-weather-popup {
+    font-size: 14px;
+    padding: 12px 20px;
+    right: 10px;
+    bottom: 10px;
+  }
 }
