@@ -2,20 +2,30 @@ import React, { useEffect, useState, useRef } from 'react';
 import './Dashboard.css';
 import Particles from '../../../Backgrounds/Particles/Particles';
 
+const getUserFromLocalStorage = () => {
+  try {
+    const stored = localStorage.getItem('cosmicUser');
+    if (stored && stored !== 'undefined') return JSON.parse(stored);
+  } catch (error) {
+    console.error('Failed to parse user from localStorage:', error);
+  }
+  return null;
+};
+
 const Dashboard = () => {
   const [apodData, setApodData] = useState(null);
   const [spaceWeather, setSpaceWeather] = useState(null);
   const [newsArticles, setNewsArticles] = useState([]);
   const carouselRef = useRef();
+  const user = getUserFromLocalStorage();
 
   // Fetch NASA APOD
   useEffect(() => {
     const fetchApod = async () => {
       try {
         const res = await fetch(
-  `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_API_KEY}`
-);
-
+          `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_API_KEY}`
+        );
         const data = await res.json();
         setApodData(data);
       } catch (error) {
@@ -62,10 +72,7 @@ const Dashboard = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (carouselRef.current) {
-        carouselRef.current.scrollBy({
-          left: 400,
-          behavior: 'smooth',
-        });
+        carouselRef.current.scrollBy({ left: 400, behavior: 'smooth' });
       }
     }, 4000);
     return () => clearInterval(interval);
@@ -88,10 +95,22 @@ const Dashboard = () => {
         <header className="dashboard-navbar">
           <h1>🚀 Cosmic Dashboard</h1>
           <nav className="dashboard-nav-links">
-            <a href="/stars">Stars</a>
-            <a href="/galaxies">Galaxies</a>
-            <a href="/blackholes">Blackholes</a>
-            <a href="/subscriptions">Subscriptions</a>
+            {user ? (
+              <>
+                <a href="/channels">Channels</a>
+                <button
+                  className="link-button"
+                  onClick={() => {
+                    localStorage.removeItem('cosmicUser');
+                    window.location.href = '/';
+                  }}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <a href="/login">Login to access channels</a>
+            )}
           </nav>
         </header>
 

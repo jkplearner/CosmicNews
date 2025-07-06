@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import Particles from '../../../Backgrounds/Particles/Particles';
+import API_URL from '../../api'; // Make sure you have api.js with your backend URL
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,11 +19,39 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Backend logic will be handled later
-    console.log('Form submitted:', formData);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!isLogin && formData.password !== formData.confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  try {
+    const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';  // ✅ fixed path
+    const res = await fetch(`${API_URL}${endpoint}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message || 'Something went wrong');
+      return;
+    }
+
+    localStorage.setItem('cosmicUser', JSON.stringify(data.user));
+    alert(data.message);
+    window.location.href = '/dashboard';
+
+  } catch (error) {
+    console.error('Error during authentication:', error);
+    alert('Network error');
+  }
+};
+
 
   const toggleMode = () => {
     setIsLogin(!isLogin);
@@ -39,7 +68,7 @@ const Login = () => {
       <div className="login-background">
         <Particles />
       </div>
-      
+
       <div className="login-container">
         <div className="login-card">
           <div className="login-header">
@@ -59,7 +88,7 @@ const Login = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Enter your full name"
-                  required={!isLogin}
+                  required
                 />
               </div>
             )}
@@ -100,7 +129,7 @@ const Login = () => {
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
                   placeholder="Confirm your password"
-                  required={!isLogin}
+                  required
                 />
               </div>
             )}

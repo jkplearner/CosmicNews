@@ -4,6 +4,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+.link-button {
+  background: none;
+  border: none;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
 
 .dashboard {
   position: relative;

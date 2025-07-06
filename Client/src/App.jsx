@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/channels/:channelID' element={<Channels />} />
+        <Route path='/channels/' element={<Channels />} />
         <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
