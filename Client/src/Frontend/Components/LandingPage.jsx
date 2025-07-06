@@ -1,5 +1,5 @@
 import React from 'react';
-import Particles from '../../../Backgrounds/Particles/Particles'; // adjust path if needed
+import Particles from '../../../Backgrounds/Particles/Particles';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -10,23 +10,21 @@ const LandingPage = () => {
         <div className="logo">🌌 Cosmic News</div>
         <ul className="nav-links">
           <li><a href="/dashboard">Dashboard</a></li>
-          <li><a href="/channels/stars">Stars</a></li>
-          <li><a href="/channels/galaxies">Galaxies</a></li>
-          <li><a href="/subscribe">Subscribe</a></li>
+          <li><a href="/login">Login</a></li>
         </ul>
       </nav>
 
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
-          <Particles /> {/* ⬅️ Particles are now only inside hero */}
+          <Particles />
         </div>
         <div className="hero-content">
           <h1>Your Daily Window to the Cosmos</h1>
           <p>Discover daily cosmic images, real-time space weather, celestial events & more.</p>
           <div className="hero-buttons">
             <a href="/dashboard" className="primary-btn">Explore Now</a>
-            <a href="/subscribe" className="secondary-btn">Subscribe for Updates</a>
+            <a href="/login" className="secondary-btn">Login</a>
           </div>
         </div>
       </section>
@@ -43,27 +41,22 @@ const LandingPage = () => {
         </div>
         <div className="feature-card">
           <h3>🌌 Celestial Events</h3>
-          <p>Don’t miss eclipses, meteor showers, and rare cosmic events.</p>
+          <p>Don't miss eclipses, meteor showers, and rare cosmic events.</p>
         </div>
       </section>
 
-      {/* Subscribe Section */}
-      <section className="subscribe-section">
-        <h2>Get monthly cosmic highlights straight to your inbox!</h2>
-        <form className="subscribe-form">
-          <input type="email" placeholder="Enter your email" />
-          <button type="submit">Subscribe</button>
-        </form>
+      {/* Login Feature Section */}
+      <section className="login-feature-section">
+        <div className="login-feature-content">
+          <h2>🔓 Login to Unlock Channels Feature</h2>
+          <p>Access exclusive cosmic channels and personalized content</p>
+          <a href="/login" className="login-feature-btn">Login / Sign Up</a>
+        </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
         <p>© 2025 Cosmic News. All rights reserved.</p>
-        <div className="footer-links">
-          <a href="/about">About</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/contact">Contact</a>
-        </div>
       </footer>
     </div>
   );
