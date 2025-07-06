@@ -45,23 +45,18 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Subscribe Section */}
-      <section className="subscribe-section">
-        <h2>Get monthly cosmic highlights straight to your inbox!</h2>
-        <form className="subscribe-form">
-          <input type="email" placeholder="Enter your email" />
-          <button type="submit">Subscribe</button>
-        </form>
+      {/* Login Feature Section */}
+      <section className="login-feature-section">
+        <div className="login-feature-content">
+          <h2>🔓 Login to Unlock Channels Feature</h2>
+          <p>Access exclusive cosmic channels and personalized content</p>
+          <a href="/login" className="login-feature-btn">Login / Sign Up</a>
+        </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
         <p>© 2025 Cosmic News. All rights reserved.</p>
-        <div className="footer-links">
-          <a href="/about">About</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/contact">Contact</a>
-        </div>
       </footer>
     </div>
   );

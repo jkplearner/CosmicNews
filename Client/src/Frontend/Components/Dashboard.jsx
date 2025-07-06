@@ -88,7 +88,7 @@ const Dashboard = () => {
         <header className="dashboard-navbar">
           <h1>🚀 Cosmic Dashboard</h1>
           <nav className="dashboard-nav-links">
-            <a href="/blackholes">Blackholes</a>
+            <a href="/channels">Channels</a>
             <a href="/subscriptions">Subscriptions</a>
           </nav>
         </header>
