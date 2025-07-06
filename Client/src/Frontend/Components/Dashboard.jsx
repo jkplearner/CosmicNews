@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Dashboard.css';
-import Particles from '../../../Backgrounds/Particles/Particles'; // adjust path if needed
+import Particles from '../../../Backgrounds/Particles/Particles';
 
 const Dashboard = () => {
   const [apodData, setApodData] = useState(null);
@@ -88,8 +88,6 @@ const Dashboard = () => {
         <header className="dashboard-navbar">
           <h1>🚀 Cosmic Dashboard</h1>
           <nav className="dashboard-nav-links">
-            <a href="/stars">Stars</a>
-            <a href="/galaxies">Galaxies</a>
             <a href="/blackholes">Blackholes</a>
             <a href="/subscriptions">Subscriptions</a>
           </nav>
