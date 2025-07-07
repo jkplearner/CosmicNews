@@ -42,15 +42,28 @@ const Login = () => {
       return;
     }
 
-    localStorage.setItem('cosmicUser', JSON.stringify(data.user));
     alert(data.message);
-    window.location.href = '/dashboard';
+
+    if (isLogin) {
+      localStorage.setItem('cosmicUser', JSON.stringify(data.user));
+      window.location.href = '/dashboard'; // ✅ go to dashboard after login
+    } else {
+      // ✅ go back to login mode after signup success
+      setIsLogin(true);
+      setFormData({
+        email: '',
+        password: '',
+        confirmPassword: '',
+        name: ''
+      });
+    }
 
   } catch (error) {
     console.error('Error during authentication:', error);
     alert('Network error');
   }
 };
+
 
 
   const toggleMode = () => {

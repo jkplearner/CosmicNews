@@ -64,16 +64,16 @@ const LandingPage = () => {
           <h3>☀️ Space Weather Alerts</h3>
           <p>Stay informed about solar flares and geomagnetic storms in real-time.</p>
         </div>
-        <div className="feature-card">
-          <h3>🌌 Celestial Events</h3>
-          <p>Don't miss eclipses, meteor showers, and rare cosmic events.</p>
-        </div>
+       <div className="feature-card">
+  <h3>🚀 Upcoming Missions</h3>
+  <p>Stay updated on upcoming rocket launches, space missions, and cutting-edge explorations beyond Earth.</p>
+</div>
       </section>
 
       <section className="login-feature-section">
         <div className="login-feature-content">
           <h2>🔓 Login to Unlock Channels Feature</h2>
-          <p>Access exclusive cosmic channels and personalized content</p>
+          <p>Access exclusive cosmic channels</p>
           <a href="/login" className="login-feature-btn">{user ? 'Go to Channels' : 'Login / Sign Up'}</a>
         </div>
       </section>
