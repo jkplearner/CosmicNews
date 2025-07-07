@@ -42,14 +42,14 @@ const LandingPage = () => {
           <Particles />
         </div>
         <div className="hero-content">
-          <h1>Your Daily Window to the Cosmos</h1>
-          <p>Discover daily cosmic images, real-time space weather, celestial events & more.</p>
+          <h1>Unlock the Secrets of the Universe</h1>
+          <p>Get breathtaking cosmic images, live space weather updates — delivered daily just for you.</p>
           <div className="hero-buttons">
             <a href="/dashboard" className="primary-btn">Explore Now</a>
             {user ? (
               <button className="secondary-btn" onClick={logoutHandler}>Logout</button>
             ) : (
-              <a href="/login" className="secondary-btn">Login</a>
+              <a href="/login" className="secondary-btn">Join Now — It’s Free</a>
             )}
           </div>
         </div>
@@ -64,17 +64,19 @@ const LandingPage = () => {
           <h3>☀️ Space Weather Alerts</h3>
           <p>Stay informed about solar flares and geomagnetic storms in real-time.</p>
         </div>
-       <div className="feature-card">
-  <h3>🚀 Upcoming Missions</h3>
-  <p>Stay updated on upcoming rocket launches, space missions, and cutting-edge explorations beyond Earth.</p>
-</div>
+        <div className="feature-card">
+          <h3>🚀 Upcoming Missions</h3>
+          <p>Stay updated on upcoming rocket launches, space missions, and cutting-edge explorations beyond Earth.</p>
+        </div>
       </section>
 
       <section className="login-feature-section">
         <div className="login-feature-content">
-          <h2>🔓 Login to Unlock Channels Feature</h2>
-          <p>Access exclusive cosmic channels</p>
-          <a href="/login" className="login-feature-btn">{user ? 'Go to Channels' : 'Login / Sign Up'}</a>
+          <h2>🔓 Become a Cosmic Insider</h2>
+          <p>Sign up to unlock personalized channels featuring stars, galaxies, nebulae, Mars photos, and upcoming missions tailored to your interests.</p>
+          <a href="/login" className="login-feature-btn">
+            {user ? 'Explore Your Channels' : 'Join Now — It’s Free'}
+          </a>
         </div>
       </section>
 
