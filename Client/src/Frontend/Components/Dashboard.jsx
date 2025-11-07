@@ -22,16 +22,67 @@ const Dashboard = () => {
   // Fetch NASA APOD
   useEffect(() => {
     const fetchApod = async () => {
+  const fetchWithTimeout = (url, options, timeout = 15000) => {
+    return Promise.race([
+      fetch(url, options),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("Request timed out")), timeout)
+      ),
+    ]);
+  };
+
+  try {
+    // 1️⃣ Try official NASA APOD
+    const res = await fetchWithTimeout(
+      `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_API_KEY}`,
+      {},
+      15000
+    );
+
+    if (!res.ok) throw new Error("NASA APOD unavailable");
+    const data = await res.json();
+    setApodData(data);
+  } catch (err1) {
+    console.warn("NASA APOD failed:", err1.message);
+
+    try {
+      // 2️⃣ Try community APOD mirror
+      const res = await fetchWithTimeout("https://apod.ellanan.com/api", {}, 15000);
+      const data = await res.json();
+      setApodData(data);
+    } catch (err2) {
+      console.warn("Mirror APOD failed:", err2.message);
+
       try {
-        const res = await fetch(
-          `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_API_KEY}`
+        // 3️⃣ Final fallback — NASA Image Library (random space image)
+        const res = await fetchWithTimeout(
+          "https://images-api.nasa.gov/search?q=space&media_type=image",
+          {},
+          10000
         );
         const data = await res.json();
-        setApodData(data);
-      } catch (error) {
-        console.error('Error fetching APOD:', error);
+        const randomItem =
+          data.collection.items[
+            Math.floor(Math.random() * data.collection.items.length)
+          ];
+        const url = randomItem.links?.[0]?.href;
+        const title = randomItem.data?.[0]?.title;
+        const desc = randomItem.data?.[0]?.description;
+        setApodData({ url, title, explanation: desc });
+      } catch (err3) {
+        console.error("All APOD sources failed:", err3.message);
+        setApodData({
+          url: "https://apod.nasa.gov/apod/image/1901/IC405_Abolfath_3952.jpg",
+          title: "Fallback: Flaming Star Nebula",
+          explanation:
+            "All APOD sources are temporarily unavailable. This is a backup image.",
+        });
       }
-    };
+    }
+  }
+};
+
+
     fetchApod();
   }, []);
 

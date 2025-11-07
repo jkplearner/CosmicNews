@@ -174,3 +174,23 @@
   outline: 2px solid #60a5fa;
   outline-offset: 2px;
 }
+.neos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.neo-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: left;
+  color: #fff;
+}
+
+.neo-card h3 {
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+}
