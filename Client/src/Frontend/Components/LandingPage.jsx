@@ -27,6 +27,7 @@ const LandingPage = () => {
         <ul className="nav-links">
           <li><a href="/dashboard">Dashboard</a></li>
           {user && <li><a href="/channels">Channels</a></li>}
+          {user && <li><a href="https://cosmicnexus360.vercel.app/">Cosmic Nexus</a></li>}
           <li>
             {user ? (
               <button className="link-button" onClick={logoutHandler}>Logout</button>

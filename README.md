@@ -32,6 +32,8 @@
       4. Static Flaming Star Nebula backup
 - Ensured client-side dashboard always shows valid content even if NASA services are down.
 - Maintained existing Particles and UI layout without flow or animation changes.
+- **New Feature**: Added "Cosmic Nexus" integration, linking to an external 3D space visualization app.
+- **Security**: Implemented `PrivateRoute` protection for the `/channels` route to ensure exclusive access for logged-in users.
 
 ## 🛠️ Tech Stack
 

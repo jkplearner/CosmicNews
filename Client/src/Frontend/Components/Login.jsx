@@ -20,49 +20,49 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!isLogin && formData.password !== formData.confirmPassword) {
-    alert("Passwords do not match");
-    return;
-  }
-
-  try {
-    const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';  // ✅ fixed path
-    const res = await fetch(`${API_URL}${endpoint}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      alert(data.message || 'Something went wrong');
+    if (!isLogin && formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match");
       return;
     }
 
-    alert(data.message);
-
-    if (isLogin) {
-      localStorage.setItem('cosmicUser', JSON.stringify(data.user));
-      window.location.href = '/dashboard'; // ✅ go to dashboard after login
-    } else {
-      // ✅ go back to login mode after signup success
-      setIsLogin(true);
-      setFormData({
-        email: '',
-        password: '',
-        confirmPassword: '',
-        name: ''
+    try {
+      const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';  // ✅ fixed path
+      const res = await fetch(`${API_URL}${endpoint}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    }
 
-  } catch (error) {
-    console.error('Error during authentication:', error);
-    alert('Network error');
-  }
-};
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message || 'Something went wrong');
+        return;
+      }
+
+      alert(data.message);
+
+      if (isLogin) {
+        localStorage.setItem('cosmicUser', JSON.stringify(data.user));
+        window.location.href = '/dashboard'; // ✅ go to dashboard after login
+      } else {
+        // ✅ go back to login mode after signup success
+        setIsLogin(true);
+        setFormData({
+          email: '',
+          password: '',
+          confirmPassword: '',
+          name: ''
+        });
+      }
+
+    } catch (error) {
+      console.error('Error during authentication:', error);
+      alert('Network error');
+    }
+  };
 
 
 
@@ -150,6 +150,9 @@ const Login = () => {
             <button type="submit" className="login-btn">
               {isLogin ? 'Sign In' : 'Create Account'}
             </button>
+            <p style={{ marginTop: '15px', fontSize: '0.85rem', fontStyle: 'italic', opacity: 0.7, textAlign: 'center', color: '#e0e0e0' }}>
+              📡 Transmission delay expected: Deep space server waking up... Please allow up to 60 seconds for the first connection.
+            </p>
           </form>
 
           <div className="login-footer">
